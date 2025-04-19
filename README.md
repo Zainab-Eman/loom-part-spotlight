@@ -1,73 +1,122 @@
-# Welcome to your Lovable project
 
-## Project info
+# Industrial Spare Parts Catalog
 
-**URL**: https://lovable.dev/projects/208b4acb-2bcb-4e8d-85ed-32057b11755d
+A full-stack web application for a mechanical workshop in Faisalabad, Pakistan that manufactures and sells spare parts for industrial machines like loom machines and feeder machines.
 
-## How can I edit this code?
+## Project Structure
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/208b4acb-2bcb-4e8d-85ed-32057b11755d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+project-root/
+├── src/                   # Frontend React application
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Page components
+│   └── ...
+└── server/                # Node.js backend
+    ├── db/                # SQLite database
+    └── index.js           # Express API
 ```
 
-**Edit a file directly in GitHub**
+## Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Responsive, modern user interface
+- Dynamic parts catalog with categories
+- Detailed part views with image slider
+- Contact form with validation
+- WhatsApp integration for easy communication
+- Backend API for parts data
 
-**Use GitHub Codespaces**
+## Technology Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Frontend**: React, React Router, TailwindCSS
+- **Backend**: Node.js, Express
+- **Database**: SQLite
 
-## What technologies are used for this project?
+## Local Development
 
-This project is built with:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd industrial-spare-parts-catalog
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## How can I deploy this project?
+3. **Start the development server**
+   ```bash
+   # Start frontend development server
+   npm run dev
+   
+   # In a separate terminal, start the backend server
+   node src/server/index.js
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/208b4acb-2bcb-4e8d-85ed-32057b11755d) and click on Share -> Publish.
+4. **Open your browser**
+   Navigate to `http://localhost:8080` to see the application running.
 
-## Can I connect a custom domain to my Lovable project?
+## Deployment
 
-Yes, you can!
+### Frontend Deployment (Netlify/Vercel)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. **Create a new site on Netlify or Vercel**
+   
+   For Netlify:
+   - Connect your GitHub repository
+   - Set build command to `npm run build`
+   - Set publish directory to `dist`
+   
+   For Vercel:
+   - Import your GitHub repository
+   - Vercel will automatically detect React settings
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+2. **Environment Variables**
+   
+   Set the following environment variable:
+   - `VITE_API_URL`: URL of your deployed backend API
+
+### Backend Deployment (Render.com)
+
+1. **Create a new Web Service on Render.com**
+   - Connect your GitHub repository
+   - Set build command to `npm install`
+   - Set start command to `node src/server/index.js`
+
+2. **Environment Variables**
+   
+   Set the following environment variables if needed:
+   - `PORT`: The port your server will run on (default: 5000)
+   - `NODE_ENV`: Set to `production`
+
+### Database Considerations
+
+The application uses SQLite by default, which stores the database as a file. For production:
+
+- The SQLite database will be created on the server when the application starts
+- Initial data is seeded automatically if the database is empty
+- To update or manage data, you can:
+  - Access the Render.com shell to run SQL commands
+  - Implement an admin panel (not included in this version)
+
+## Adding New Parts or Categories
+
+To add new parts or categories, you'll need to:
+
+1. Access your database through your backend host's shell
+2. Run SQL INSERT statements to add new records
+3. New data will appear in the frontend automatically
+
+## Customization
+
+- **Images**: Place your images in the public/assets/images directory
+- **Contact Details**: Update contact information in the Footer and Contact components
+- **Colors**: Modify the color scheme in the TailwindCSS config or component classes
+
+## License
+
+[MIT License](LICENSE)
+
+## Support
+
+For questions or assistance, please contact [Your Contact Information].
