@@ -1,122 +1,112 @@
 
-# Industrial Spare Parts Catalog
+# Shafiq Engineering Works - Spare Parts Catalog
 
-A full-stack web application for a mechanical workshop in Faisalabad, Pakistan that manufactures and sells spare parts for industrial machines like loom machines and feeder machines.
+A complete catalog website for Shafiq Engineering Works, a workshop that manufactures and sells spare parts for industrial machines.
 
 ## Project Structure
 
 ```
 project-root/
-├── src/                   # Frontend React application
-│   ├── components/        # Reusable UI components
-│   ├── pages/             # Page components
-│   └── ...
-└── server/                # Node.js backend
-    ├── db/                # SQLite database
-    └── index.js           # Express API
+├── public/                # Static frontend (HTML/CSS/JS)
+│   ├── index.html        # Home page
+│   ├── category.html     # Category listing page
+│   ├── part.html         # Part detail page
+│   ├── contact.html      # Contact page
+│   └── assets/           # Images, CSS, JS
+├── server/               # Node.js backend
+│   ├── index.js          # Main server file
+│   └── db/               # SQLite database
+└── README.md             # This file
 ```
 
-## Features
+## Technologies Used
 
-- Responsive, modern user interface
-- Dynamic parts catalog with categories
-- Detailed part views with image slider
-- Contact form with validation
-- WhatsApp integration for easy communication
-- Backend API for parts data
-
-## Technology Stack
-
-- **Frontend**: React, React Router, TailwindCSS
+- **Frontend**: HTML, CSS, JavaScript, Bootstrap 5
 - **Backend**: Node.js, Express
 - **Database**: SQLite
+- **Libraries**:
+  - Swiper.js (for image sliders)
+  - Font Awesome (for icons)
 
-## Local Development
+## Setup and Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd industrial-spare-parts-catalog
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm (v6 or later)
+
+### Installation Steps
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/shafiq-engineering-works.git
+   cd shafiq-engineering-works
    ```
 
-2. **Install dependencies**
-   ```bash
+2. Install dependencies:
+   ```
    npm install
    ```
 
-3. **Start the development server**
-   ```bash
-   # Start frontend development server
-   npm run dev
-   
-   # In a separate terminal, start the backend server
-   node src/server/index.js
+3. Start the development server:
+   ```
+   npm start
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:8080` to see the application running.
+4. Open your browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
 
 ## Deployment
 
-### Frontend Deployment (Netlify/Vercel)
+### Deploying the Frontend (Netlify/Vercel)
 
-1. **Create a new site on Netlify or Vercel**
-   
-   For Netlify:
-   - Connect your GitHub repository
-   - Set build command to `npm run build`
-   - Set publish directory to `dist`
-   
-   For Vercel:
-   - Import your GitHub repository
-   - Vercel will automatically detect React settings
+1. Create a production build:
+   ```
+   npm run build
+   ```
 
-2. **Environment Variables**
-   
-   Set the following environment variable:
-   - `VITE_API_URL`: URL of your deployed backend API
+2. Upload the `public` directory to Netlify/Vercel or use their CLI tools.
 
-### Backend Deployment (Render.com)
+3. Configure environment variables in your hosting platform:
+   - Set `API_URL` to point to your deployed backend URL
 
-1. **Create a new Web Service on Render.com**
-   - Connect your GitHub repository
-   - Set build command to `npm install`
-   - Set start command to `node src/server/index.js`
+### Deploying the Backend (Render.com/Railway)
 
-2. **Environment Variables**
-   
-   Set the following environment variables if needed:
-   - `PORT`: The port your server will run on (default: 5000)
-   - `NODE_ENV`: Set to `production`
+1. Push your code to GitHub.
 
-### Database Considerations
+2. Connect your GitHub repository to Render.com or Railway.
 
-The application uses SQLite by default, which stores the database as a file. For production:
+3. Configure the following settings:
+   - Build command: `npm install`
+   - Start command: `node server/index.js`
+   - Environment variables:
+     - `PORT`: 5000 (or let the platform assign it)
 
-- The SQLite database will be created on the server when the application starts
-- Initial data is seeded automatically if the database is empty
-- To update or manage data, you can:
-  - Access the Render.com shell to run SQL commands
-  - Implement an admin panel (not included in this version)
+4. Deploy the application.
 
-## Adding New Parts or Categories
+## API Endpoints
 
-To add new parts or categories, you'll need to:
+- `GET /api/categories` - Get all spare part categories
+- `GET /api/parts?category=loom` - Get parts by category
+- `GET /api/parts/:id` - Get detailed information about a specific part
 
-1. Access your database through your backend host's shell
-2. Run SQL INSERT statements to add new records
-3. New data will appear in the frontend automatically
+## Features
+
+- Responsive design that works on all devices
+- Dynamic loading of categories and parts from the database
+- Image slider for part images
+- Contact form with validation
+- WhatsApp integration for direct inquiries
 
 ## Customization
 
-- **Images**: Place your images in the public/assets/images directory
-- **Contact Details**: Update contact information in the Footer and Contact components
-- **Colors**: Modify the color scheme in the TailwindCSS config or component classes
+- Update sample data in `server/index.js` with your actual product information
+- Replace placeholder images in `public/assets/images/` with real product images
+- Update contact information in HTML files
+- Modify styles in `public/assets/css/style.css` to match your branding
 
 ## License
 
-[MIT License](LICENSE)
-
-## Support
-
-For questions or assistance, please contact [Your Contact Information].
+This project is licensed under the MIT License - see the LICENSE file for details.

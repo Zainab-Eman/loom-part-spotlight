@@ -1,0 +1,138 @@
+
+/* Base Styles */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --dark-color: #212529;
+  --light-color: #f8f9fa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-title {
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  background-color: var(--dark-color);
+  position: relative;
+}
+
+/* Category Cards */
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Part Cards */
+.part-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.part-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.part-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+/* Part Detail */
+.part-image-main {
+  height: 400px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+/* Image Gallery/Slider */
+.swiper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
+/* Contact Form */
+.contact-info {
+  background-color: var(--primary-color);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+}
+
+.social-icons a {
+  transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 0;
+  }
+  
+  .part-image-main {
+    height: 300px;
+  }
+  
+  .swiper-slide {
+    height: 300px;
+  }
+}
